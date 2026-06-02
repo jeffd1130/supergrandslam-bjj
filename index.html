@@ -8,132 +8,158 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      background: #0a0a0a;
-      color: #e8e8e8;
+      background: #080808;
+      color: #e0e0e0;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       min-height: 100vh;
-      padding: 60px 24px;
     }
 
+    /* ── HEADER ── */
     header {
       text-align: center;
-      margin-bottom: 72px;
+      padding: 64px 24px 48px;
+      border-bottom: 1px solid #141414;
     }
-
-    header p.brand {
-      font-size: 10px;
+    header .eyebrow {
+      font-size: 9px;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: #3a3a3a;
+      margin-bottom: 16px;
+    }
+    header h1 {
+      font-size: 11px;
+      font-weight: 400;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: #666;
-      margin-bottom: 20px;
+      color: #888;
+      margin-bottom: 6px;
     }
-
-    header h1 {
-      font-size: 13px;
-      font-weight: 400;
+    header .status {
+      font-size: 9px;
       letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: #e8e8e8;
-      margin-bottom: 8px;
+      color: #2e2e2e;
     }
 
-    header p.sub {
-      font-size: 11px;
-      color: #444;
-      letter-spacing: 0.15em;
-    }
-
-    .divider {
-      width: 40px;
-      height: 1px;
-      background: #222;
-      margin: 40px auto;
-    }
-
-    .posts {
-      max-width: 760px;
-      margin: 0 auto;
+    /* ── GRID ── */
+    .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 48px;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 64px 40px 80px;
+      gap: 60px;
+    }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; padding: 48px 24px 64px; gap: 72px; }
     }
 
-    @media (max-width: 600px) {
-      .posts { grid-template-columns: 1fr; gap: 56px; }
-    }
+    /* ── CARD ── */
+    .card { display: flex; flex-direction: column; gap: 0; }
 
-    .post-card {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .post-label {
+    .card-index {
       font-size: 9px;
       letter-spacing: 0.35em;
       text-transform: uppercase;
-      color: #444;
+      color: #2a2a2a;
+      margin-bottom: 18px;
     }
 
-    .post-title {
-      font-size: 12px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #c8c8c8;
-      font-weight: 500;
-      line-height: 1.6;
-    }
-
-    .post-desc {
-      font-size: 11px;
-      color: #555;
-      letter-spacing: 0.08em;
-      line-height: 1.7;
-    }
-
-    .preview-frame {
+    /* design image */
+    .design-wrap {
       width: 100%;
-      aspect-ratio: 4/5;
-      background: #111;
-      border: 1px solid #1a1a1a;
+      aspect-ratio: 4 / 5;
       overflow: hidden;
+      background: #0f0f0f;
       position: relative;
     }
-
-    .preview-frame iframe {
+    .design-wrap img {
       width: 100%;
       height: 100%;
-      border: none;
-      pointer-events: none;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .design-wrap:hover img { transform: scale(1.02); }
+
+    /* tag */
+    .tag {
+      display: inline-block;
+      font-size: 8px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border: 1px solid #1c1c1c;
+      color: #333;
+      margin-top: 20px;
+      margin-bottom: 20px;
     }
 
-    .preview-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(10,10,10,0.55);
-      opacity: 0;
-      transition: opacity 0.2s;
+    /* title */
+    .card-title {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #bbb;
+      font-weight: 500;
+      margin-bottom: 8px;
     }
 
-    .preview-frame:hover .preview-overlay {
-      opacity: 1;
+    /* description */
+    .card-desc {
+      font-size: 10px;
+      color: #3d3d3d;
+      letter-spacing: 0.08em;
+      line-height: 1.8;
+      margin-bottom: 28px;
     }
 
-    .btn-group {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+    /* divider */
+    .rule { border: none; border-top: 1px solid #141414; margin-bottom: 28px; }
+
+    /* caption */
+    .caption-label {
+      font-size: 8px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: #2a2a2a;
+      margin-bottom: 12px;
     }
+    .caption-text {
+      font-size: 12px;
+      color: #666;
+      line-height: 1.9;
+      letter-spacing: 0.03em;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+    .caption-text .handle {
+      font-style: normal;
+      color: #444;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+    }
+
+    /* hashtags */
+    .hashtags {
+      font-size: 10px;
+      color: #282828;
+      letter-spacing: 0.05em;
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    /* buttons */
+    .btn-stack { display: flex; flex-direction: column; gap: 8px; }
 
     .btn {
       display: block;
+      width: 100%;
       text-align: center;
-      padding: 13px 20px;
+      padding: 14px 20px;
       font-size: 9px;
-      letter-spacing: 0.3em;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
       text-decoration: none;
       font-family: inherit;
@@ -141,116 +167,108 @@
       transition: all 0.15s;
       border: none;
     }
-
-    .btn-primary {
+    .btn-white {
       background: #e8e8e8;
-      color: #0a0a0a;
+      color: #080808;
     }
+    .btn-white:hover { background: #fff; }
 
-    .btn-primary:hover {
-      background: #ffffff;
-    }
-
-    .btn-secondary {
+    .btn-ghost {
       background: transparent;
-      color: #666;
-      border: 1px solid #222;
+      color: #3a3a3a;
+      border: 1px solid #1a1a1a;
     }
+    .btn-ghost:hover { border-color: #333; color: #666; }
 
-    .btn-secondary:hover {
-      border-color: #444;
-      color: #aaa;
-    }
-
-    .status-badge {
-      display: inline-block;
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid #111;
+      text-align: center;
+      padding: 32px 24px;
       font-size: 9px;
       letter-spacing: 0.25em;
       text-transform: uppercase;
-      padding: 5px 12px;
-      border: 1px solid #222;
-      color: #555;
-    }
-
-    .caption-block {
-      border-left: 1px solid #1e1e1e;
-      padding-left: 14px;
-    }
-
-    .caption-block p.caption-label {
-      font-size: 9px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: #333;
-      margin-bottom: 8px;
-    }
-
-    .caption-block p.caption-text {
-      font-size: 11px;
-      color: #555;
-      line-height: 1.75;
-      font-style: italic;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 100px;
-      font-size: 10px;
-      color: #2a2a2a;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
+      color: #1e1e1e;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <p class="brand">Be Present Wear</p>
-    <h1>Super Grand Slam — SS26</h1>
-    <p class="sub">Instagram Post Approvals</p>
+    <p class="eyebrow">Be Present Wear — SS26</p>
+    <h1>Super Grand Slam Collection</h1>
+    <p class="status">Instagram Post Approvals — 2 Posts</p>
   </header>
 
-  <div class="divider"></div>
+  <div class="grid">
 
-  <div class="posts">
+    <!-- ── POST 1 ── -->
+    <div class="card">
+      <p class="card-index">Post 01 / 02</p>
 
-    <!-- POST 1 -->
-    <div class="post-card">
-      <p class="post-label">Post 01 of 02</p>
-      <p class="post-title">Lookbook<br>Editorial</p>
-      <p class="post-desc">Full-body gym shot — oversized black graphic tee, concrete wall, bumper plates. Fear of God Essentials minimal editorial.</p>
-
-      <span class="status-badge">Pending Approval</span>
-
-      <div class="btn-group">
-        <a class="btn btn-primary" href="https://www.canva.com/d/DYpoXV_-Q5KnTKM" target="_blank">View Design</a>
-        <a class="btn btn-secondary" href="https://www.canva.com/d/Uxu7WlaB3fmzNNV" target="_blank">Open in Canva Editor</a>
-        <a class="btn btn-secondary" href="https://github.com/jeffd1130/bepresent-wear-sgs/issues/1" target="_blank">Comment / Approve on GitHub</a>
+      <div class="design-wrap">
+        <img src="designs/post1-lookbook.jpg" alt="Post 1 — Lookbook Editorial" />
       </div>
 
-      <div class="caption-block">
-        <p class="caption-label">Caption Draft</p>
-        <p class="caption-text">Be Present. Be Legacy.<br>Super Grand Slam Collection — SS26<br>@bepresentwear</p>
+      <span class="tag">Pending Approval</span>
+
+      <p class="card-title">Lookbook Editorial</p>
+      <p class="card-desc">Full-body gym shot — oversized black graphic tee, concrete wall, bumper plates. Fear of God Essentials minimal editorial style.</p>
+
+      <hr class="rule" />
+
+      <p class="caption-label">Caption</p>
+      <p class="caption-text">
+        Be Present. Be Legacy.<br />
+        Super Grand Slam Collection — SS26<br /><br />
+        <span class="handle">@bepresentwear</span>
+      </p>
+
+      <p class="caption-label">Hashtags</p>
+      <p class="hashtags">
+        #BePresent #BePrensent Wear #SuperGrandSlam #BJJ #ADCC #Cobrinha #Grappling #StreetWear #EssentialsVibes #DropSS26 #MartialArtsStyle #GymFit #OverSized #LuxuryStreetWear
+      </p>
+
+      <div class="btn-stack">
+        <a class="btn btn-white" href="https://www.canva.com/d/DYpoXV_-Q5KnTKM" target="_blank">View Full Design</a>
+        <a class="btn btn-ghost" href="https://www.canva.com/d/Uxu7WlaB3fmzNNV" target="_blank">Edit in Canva</a>
+        <a class="btn btn-ghost" href="https://github.com/jeffd1130/bepresent-wear-sgs/issues/1" target="_blank">Approve on GitHub</a>
       </div>
     </div>
 
-    <!-- POST 2 -->
-    <div class="post-card">
-      <p class="post-label">Post 02 of 02</p>
-      <p class="post-title">Drop<br>Announcement</p>
-      <p class="post-desc">Back print detail — "Super Grand Slam" + Cobrinha quote. Prestige heritage martial arts meets luxury streetwear.</p>
+    <!-- ── POST 2 ── -->
+    <div class="card">
+      <p class="card-index">Post 02 / 02</p>
 
-      <span class="status-badge">Pending Approval</span>
-
-      <div class="btn-group">
-        <a class="btn btn-primary" href="https://www.canva.com/d/esAFmBfXTBdjyTY" target="_blank">View Design</a>
-        <a class="btn btn-secondary" href="https://www.canva.com/d/2pl6N-FqqYu69Dr" target="_blank">Open in Canva Editor</a>
-        <a class="btn btn-secondary" href="https://github.com/jeffd1130/bepresent-wear-sgs/issues/2" target="_blank">Comment / Approve on GitHub</a>
+      <div class="design-wrap">
+        <img src="designs/post2-drop.jpg" alt="Post 2 — Drop Announcement" />
       </div>
 
-      <div class="caption-block">
-        <p class="caption-label">Caption Draft</p>
-        <p class="caption-text">"No matter how I'm going to make the weight to fight ADCC but I will make that weight and I will crown myself champion of the event." — Cobrinha<br><br>Super Grand Slam Tee — Available Now<br>@bepresentwear</p>
+      <span class="tag">Pending Approval</span>
+
+      <p class="card-title">Drop Announcement</p>
+      <p class="card-desc">Back print detail — "Super Grand Slam" + Cobrinha quote. Prestige heritage martial arts meets luxury streetwear.</p>
+
+      <hr class="rule" />
+
+      <p class="caption-label">Caption</p>
+      <p class="caption-text">
+        "No matter how I'm going to make the weight to fight ADCC<br />
+        but I will make that weight and I will crown myself<br />
+        champion of the event." — Cobrinha<br /><br />
+        Super Grand Slam Tee — Available Now<br /><br />
+        <span class="handle">@bepresentwear</span>
+      </p>
+
+      <p class="caption-label">Hashtags</p>
+      <p class="hashtags">
+        #BePresent #BePresent Wear #SuperGrandSlam #Cobrinha #ADCC #BJJLife #Grappling #ChampionMindset #DropNow #StreetWear #LimitedDrop #MartialArtsApparel #BJJFashion #SS26
+      </p>
+
+      <div class="btn-stack">
+        <a class="btn btn-white" href="https://www.canva.com/d/esAFmBfXTBdjyTY" target="_blank">View Full Design</a>
+        <a class="btn btn-ghost" href="https://www.canva.com/d/2pl6N-FqqYu69Dr" target="_blank">Edit in Canva</a>
+        <a class="btn btn-ghost" href="https://github.com/jeffd1130/bepresent-wear-sgs/issues/2" target="_blank">Approve on GitHub</a>
       </div>
     </div>
 
